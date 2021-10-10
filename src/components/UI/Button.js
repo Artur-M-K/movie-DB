@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-const Button = ({onClick}) => {
+const Button = ({onClick, name}) => {
 
     return (
         <div >
             <button 
                 className={styles.button} 
                 onClick={onClick}>
-                    SEARCH
+                    {name}
             </button>
         </div>
     )

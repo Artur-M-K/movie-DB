@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import { MovieContext } from '../context/MovieContext';
@@ -11,6 +11,7 @@ const Header = () => {
   const {setMovies} = useContext(MovieContext);
 
   const handleSubmit = () => {
+    
     if (inputText !== '') {
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=1`, {
       "method": "GET",
@@ -28,6 +29,7 @@ const Header = () => {
         });
   }
   setInputText('');
+  localStorage.clear();
 }
 
   return (
@@ -35,7 +37,7 @@ const Header = () => {
       <h1 className={styles.logo}>Header</h1>
       <div className={styles.search}>
         <Input />
-        <Button onClick={handleSubmit}/>
+        <Button onClick={handleSubmit} name={'SEARCH'}/>
       </div>
     </div>
   );

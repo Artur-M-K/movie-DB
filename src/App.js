@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { MovieContext } from "./context/MovieContext";
@@ -8,13 +8,16 @@ import "./App.css";
 
 const App = () => {
   const { movies } = useContext(MovieContext);
-  console.log(movies)
+
   return (
     <>
-      <Header />
       <Router>
-        <Route exact path="/">{movies.length >= 0 && <MainSection />}</Route>
-        <Route path='/:id' component={MovieDetail} />
+        <Route exact path="/">
+          <Header />
+          <MainSection />
+          {/* {showResult.length > 0 ? <MainSection /> : ''} */}
+        </Route>
+        <Route path='/movie/:id' component={MovieDetail} />
       </Router>
     </>
   );

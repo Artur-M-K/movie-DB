@@ -11,13 +11,17 @@ const MainSection = () => {
   }, [movies]);
 
   const moviesData = JSON.parse(localStorage.getItem("searchData"));
-  // const check = localStorage.hasOwnProperty('searchData')
-  const check = moviesData.length > 0 ? moviesData : movies;
-  console.log(check);
-  const moviesInfo = check.map((movie) => (
-    <Cart key={movie.imdbID} title={movie.Title} poster={movie.Poster} />
-  ));
 
+  let check = moviesData !== null ? moviesData : movies;
+  
+  const moviesInfo = check.map((movie) => (
+    <Cart
+      key={movie.imdbID}
+      title={movie.Title}
+      poster={movie.Poster}
+      id={movie.imdbID}
+    />
+  ));
   return <ul className={styles.container}>{moviesInfo}</ul>;
 };
 
