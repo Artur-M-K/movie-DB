@@ -1,0 +1,14 @@
+.container {
+    width: 50vw;
+    margin: 10% auto;
+    padding: 3rem 1.8rem;
+    background-color: #000;
+    color: white;
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.39);
+}
+
+.container p {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 5px;
+}

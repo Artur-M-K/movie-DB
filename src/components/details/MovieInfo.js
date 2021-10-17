@@ -1,8 +1,10 @@
 import React from 'react';
+
+import Ratings from './Ratings';
 import styles from './MovieInfo.module.css';
 
 const MovieInfo = ({data}) => {
-    console.log(data);
+    
     return (
         <div className={styles.container}>
             <div className={styles.movie}>
@@ -21,7 +23,7 @@ const MovieInfo = ({data}) => {
             </div>
             <div className={styles.moviePoster}>
                 <img src={data.Poster} alt={data.Title} />
-                <div className={styles.ratings}>RATINGS</div>
+                <Ratings data={data.Ratings}/>
             </div>
         </div>
     )

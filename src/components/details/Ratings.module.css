@@ -1,0 +1,27 @@
+.rating {
+    display: flex;
+    background-color: #1f1f1f;
+    box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.13);
+}
+
+.source_rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.source_rating p {
+    padding: 10px 0;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 200;
+}
+
+.image {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 3px;
+    padding: 2px 0;
+    width: 100px;
+}
