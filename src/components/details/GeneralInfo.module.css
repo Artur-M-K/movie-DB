@@ -1,0 +1,16 @@
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    border-top: 1px solid rgb(124, 124, 124);
+}
+
+.info p, .info span {
+    color: white;
+}
+
+.info span {
+    font-weight: 100;
+    font-size: 1.2rem;
+}

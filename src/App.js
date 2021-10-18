@@ -17,7 +17,7 @@ const App = () => {
         <Switch>
         <Route exact path="/">
           <Header />
-          {movies !== undefined ? <MainSection /> : <NoFound />}
+          {movies !== undefined && movies !== 0 ? <MainSection /> : <NoFound />}
         </Route>
         <Route path="/movie/:id" component={MovieDetail}></Route>
         <Route path="*">
