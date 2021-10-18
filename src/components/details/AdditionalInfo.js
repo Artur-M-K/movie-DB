@@ -7,7 +7,7 @@ const AdditionalInfo = ({data}) => {
             <p><span>Released Date:</span> {data.Released}</p>
             <p><span>BoxOffice:</span> {data.BoxOffice}</p>
             <p><span>Awards:</span> {data.Awards}</p>
-            <p><span>IMDB votes:</span> {data.imdbVotes} votes</p>
+            <p><span>IMDB votes:</span>{data.imdbRating} / {data.imdbVotes} votes</p>
         </div>
     )
 }
