@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import { MovieContext } from '../context/MovieContext';
@@ -6,10 +6,10 @@ import styles from "./Header.module.css";
 
 const Header = () => {
 
-  const {inputText, setInputText} = useContext(MovieContext);
-
-  const {setMovies} = useContext(MovieContext);
-
+  const {inputText, setInputText, setTotalResult, setMovies} = useContext(MovieContext);
+  // const {setResultNumber} = useContext(MovieContext)
+  // const {setMovies} = useContext(MovieContext);
+  
   const handleSubmit = () => {
     
     if (inputText !== '') {
@@ -23,12 +23,13 @@ const Header = () => {
         .then(response => response.json())
           .then(data => {
             setMovies(data.Search)
+            setTotalResult(data.totalResults);
           })
         .catch(err => {
           console.error(err);
         });
   }
-  setInputText('');
+  // setInputText('');
   localStorage.clear();
 }
 

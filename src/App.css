@@ -18,3 +18,38 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+}
+
+.pagination li {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 200;
+  padding: 0 4px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.pagination li:hover {
+  font-weight: 400;
+}
+
+.active {
+  cursor: pointer;
+  background-color: #F7B707;
+  border-radius: 5px;
+}
+
+.previous, .next {
+  margin: 0 15px;
+  width: 60px;
+}
