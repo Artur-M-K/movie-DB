@@ -1,11 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../../context/MovieContext";
 import Cart from "../details/Cart";
 import ReactPaginate from 'react-paginate';
+import Spinner from "../UI/Spinner";
 import styles from "./MainSection.module.css";
 
 const MainSection = () => {
   const { inputText, movies, totalResult, setPageNumber, setMovies, setTotalResult, pageNumber } = useContext(MovieContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("searchData", JSON.stringify(movies));
@@ -25,10 +27,11 @@ const MainSection = () => {
   ));
 
   const handlePageClick = (data) => {
-    setPageNumber((prev) => prev = data.selected)
+    setPageNumber(data.selected)
   }
 
   const pageResultHandler = () => {
+    localStorage.clear();
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=${pageNumber+1}`, {
       "method": "GET",
       "headers": {
@@ -41,22 +44,26 @@ const MainSection = () => {
             setMovies(data.Search)
             setTotalResult(data.totalResults);
             console.log(data.Search)
+            setIsLoading(false)
           })
         .catch(err => {
           console.error(err);
         });
       }
-
+      
   console.log(totalResult)
 
   useEffect(() => {
+    setIsLoading(true);
       pageResultHandler()
+      return function cleanup() {
+       setIsLoading(false)
+    }
   },[pageNumber]);
 
   console.log(pageNumber)
 
-  return (
-    <>
+  const moviePageInfo = <>
     <ul className={styles.container}>{moviesInfo}</ul>
     <ReactPaginate
           previousLabel={'prev'}
@@ -69,7 +76,14 @@ const MainSection = () => {
           onPageChange={handlePageClick}
           containerClassName={'pagination'}
           activeClassName={'active'}
+          initialPage={(pageNumber)}
+          forcePage={(pageNumber)}
         />
+  </>
+
+  return (
+    <>
+    {!isLoading ? moviePageInfo : <Spinner/>}
     </>
   )
   

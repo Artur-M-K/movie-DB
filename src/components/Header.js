@@ -6,12 +6,12 @@ import styles from "./Header.module.css";
 
 const Header = () => {
 
-  const {inputText, setInputText, setTotalResult, setMovies} = useContext(MovieContext);
+  const {inputText, setPageNumber, setTotalResult, setMovies} = useContext(MovieContext);
   // const {setResultNumber} = useContext(MovieContext)
   // const {setMovies} = useContext(MovieContext);
   
   const handleSubmit = () => {
-    
+    setPageNumber(0)
     if (inputText !== '') {
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=1`, {
       "method": "GET",
@@ -29,7 +29,7 @@ const Header = () => {
           console.error(err);
         });
   }
-  // setInputText('');
+  
   localStorage.clear();
 }
 

@@ -4,6 +4,8 @@ import styles from './Cart.module.css';
 
 const Cart = ({title, poster, id}) => {
     // console.log(title,poster)
+    console.log(title.length)
+    const titleShort = title.length>26 ? title.substring(0, 23)+'...': title;
 
     return (
         <Link to={`/movie/${id}`} style={{ textDecoration: 'none' }}>
@@ -13,7 +15,7 @@ const Cart = ({title, poster, id}) => {
             :
             <h3>No poster available</h3>
             }
-           <h4>{title}</h4>
+           <h4>{titleShort}</h4>
         </li>
         </Link>
     )

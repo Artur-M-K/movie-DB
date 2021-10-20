@@ -8,19 +8,19 @@ const Ratings = ({data}) => {
     const rating = data.map(item => {
         switch(item.Source) {
             case 'Internet Movie Database':
-               return <div key={item.imdbID} className={styles.source_rating}>
+               return <div key={1} className={styles.source_rating}>
                 <img src={imdb} alt="" className={styles.image}/>
                 <p>{item.Value}</p>
                 </div>
                 
             case 'Metacritic':
-                return <div key={item.imdbID} className={styles.source_rating}>
+                return <div key={2} className={styles.source_rating}>
                 <img src={metacritic} alt="" className={styles.image}/>
                 <p>{item.Value}</p>
                 </div>
                 
             case 'Rotten Tomatoes':
-               return <div key={item.imdbID} className={styles.source_rating}>
+               return <div key={3} className={styles.source_rating}>
                 <img src={rotten} alt="" className={styles.image}/>
                 <p>{item.Value}</p>
                 </div>

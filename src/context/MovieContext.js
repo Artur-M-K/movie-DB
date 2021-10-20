@@ -5,7 +5,7 @@ export const MovieContext = createContext();
 const MovieProvider = ({ children }) => {
   const [inputText, setInputText] = useState("");
   const [movies, setMovies] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [totalResult, setTotalResult] = useState(0);
 
   return (
