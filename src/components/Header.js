@@ -3,6 +3,7 @@ import Input from "./UI/Input";
 import Button from "./UI/Button";
 import { MovieContext } from '../context/MovieContext';
 import styles from "./Header.module.css";
+import logo from '../assets/logo.png';
 
 const Header = () => {
 
@@ -35,7 +36,8 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.logo}>Header</h1>
+      {/* <h1 className={styles.logo}>Header</h1> */}
+      <img className={styles.logo} src={logo} alt="" />
       <div className={styles.search}>
         <Input />
         <Button onClick={handleSubmit} name={'SEARCH'}/>

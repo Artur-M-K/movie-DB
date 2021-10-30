@@ -9,6 +9,7 @@ const MovieDetail = (props) => {
   const movieID = props.match.params.id;
   const [movieInfo, setMovieInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     // setIsLoading(true);
@@ -44,6 +45,7 @@ const MovieDetail = (props) => {
       <Link to="/" style={{ textDecoration: "none" }}>
         <Button name={"BACK"} />
       </Link>
+      <Button name={'+'} className={'mobile'} onClick={() => setIsActive(!isActive)} isActive={isActive}/>
     </>
   );
 

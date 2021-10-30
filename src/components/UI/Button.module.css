@@ -7,7 +7,17 @@
     background-color: #F7B707;
 }
 
+.mobile {
+    display: none;
+}
+
 .button:hover {
     background-color: #C79405;
     color: white;
 }
+
+@media (max-width: 640px) {
+    .mobile {
+      display: inline-block;
+    }
+  }
