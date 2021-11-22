@@ -6,18 +6,18 @@ import styles from "./Header.module.css";
 import logo from '../assets/logo.png';
 
 const Header = () => {
-
-  const {inputText, setPageNumber, setTotalResult, setMovies} = useContext(MovieContext);
+  
+  const {inputText, setPageNumber, setTotalResult, setMovies, apiKey} = useContext(MovieContext);
   // const {setResultNumber} = useContext(MovieContext)
   // const {setMovies} = useContext(MovieContext);
-  
+
   const handleSubmit = () => {
     setPageNumber(0)
     if (inputText !== '') {
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=1`, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "1847211eddmshfc083e87d4075d5p1ea54fjsnf450286c9eab",
+        "x-rapidapi-key": apiKey,
         "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com"
       }
         })
@@ -36,7 +36,6 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      {/* <h1 className={styles.logo}>Header</h1> */}
       <img className={styles.logo} src={logo} alt="" />
       <div className={styles.search}>
         <Input />

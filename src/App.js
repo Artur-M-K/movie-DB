@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import { MovieContext } from "./context/MovieContext";
@@ -8,16 +8,32 @@ import NoFound from "./components/details/NoFound";
 import NotFound from "./components/pages/NotFound";
 import "./App.css";
 
+let initialization = false;
+
 const App = () => {
+  // const [initialization, setInitialization] = useState(false);
   const { movies } = useContext(MovieContext);
   console.log(movies);
+  console.log(initialization);
+
+  useEffect(() => {
+    // if (movies === 0) {
+    //   setInitialization(false)
+    // } else {
+    //   setInitialization(true)
+    // }
+    initialization = true;
+  }, []);
+ 
+
   return (
     <>
       <Router>
         <Switch>
         <Route exact path="/">
           <Header />
-          {movies !== undefined && movies !== 0 ? <MainSection /> : <NoFound />}
+          {initialization && 
+          (movies !== undefined ? <MainSection /> : <NoFound />)}
         </Route>
         <Route path="/movie/:id" component={MovieDetail}></Route>
         <Route path="*">

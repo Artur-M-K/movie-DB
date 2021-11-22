@@ -6,7 +6,7 @@ import Spinner from "../UI/Spinner";
 import styles from "./MainSection.module.css";
 
 const MainSection = () => {
-  const { inputText, movies, totalResult, setPageNumber, setMovies, setTotalResult, pageNumber } = useContext(MovieContext);
+  const { inputText, movies, totalResult, setPageNumber, setMovies, setTotalResult, pageNumber, apiKey } = useContext(MovieContext);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const MainSection = () => {
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=${pageNumber+1}`, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "1847211eddmshfc083e87d4075d5p1ea54fjsnf450286c9eab",
+        "x-rapidapi-key": apiKey,
         "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com"
       }
         })
@@ -55,8 +55,9 @@ const MainSection = () => {
 
   useEffect(() => {
     setIsLoading(true);
-      pageResultHandler()
-      return function cleanup() {
+      pageResultHandler();
+      
+    return function cleanup() {
        setIsLoading(false)
     }
   },[pageNumber]);

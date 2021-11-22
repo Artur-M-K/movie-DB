@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { MovieContext } from "../../context/MovieContext";
 import Button from "../UI/Button";
 import MovieInfo from "../details/MovieInfo";
 import Spinner from "../UI/Spinner";
@@ -7,6 +8,7 @@ import Spinner from "../UI/Spinner";
 const MovieDetail = (props) => {
 
   const movieID = props.match.params.id;
+  const {apiKey} = useContext(MovieContext);
   const [movieInfo, setMovieInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isActive, setIsActive] = useState(false);
@@ -20,8 +22,7 @@ const MovieDetail = (props) => {
           method: "GET",
           headers: {
             "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
-            "x-rapidapi-key":
-              "1847211eddmshfc083e87d4075d5p1ea54fjsnf450286c9eab",
+            "x-rapidapi-key": apiKey,
           },
         }
       )
