@@ -16,3 +16,15 @@
 .container p {
     font-weight: 100;
 }
+
+@media (max-width: 640px) {
+    .container {
+        width: 98%;
+        margin: 5px auto;
+        padding: 5px 5px;
+    }
+
+    .container p {
+        font-size: .85rem;
+    }
+}

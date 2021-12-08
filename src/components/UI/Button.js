@@ -3,14 +3,16 @@ import styles from './Button.module.css';
 
 const Button = ({onClick, name, className, isActive}) => {
     console.log(isActive)
+    const buttonClass = className === 'back' ? styles.back: styles.mobile;
+    
     return (
-        <div >
+        
             <button 
-                className={className ? `${styles.button} + ${styles.mobile}` : `${styles.button}`} 
+                className={className ? `${styles.button} + ${buttonClass}` : `${styles.button}`} 
                 onClick={onClick}>
                     {name}
             </button>
-        </div>
+        
     )
 }
 

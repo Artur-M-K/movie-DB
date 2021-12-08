@@ -13,3 +13,14 @@
     padding-top: 5px;
     font-weight: 100;
 }
+
+@media (max-width: 640px) {
+    .plot {
+        width: 98%;
+        padding: 5px 5px;
+    }
+
+    .plot p {
+        font-size: .85rem;
+    }
+}

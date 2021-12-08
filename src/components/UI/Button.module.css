@@ -19,5 +19,16 @@
 @media (max-width: 640px) {
     .mobile {
       display: inline-block;
+      position: absolute;
+      bottom: 10px;
+      right: 0; 
+      transform: rotate(180deg);
     }
+    .back {
+        display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+    }
+    
   }
