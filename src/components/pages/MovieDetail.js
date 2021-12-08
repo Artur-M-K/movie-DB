@@ -5,8 +5,6 @@ import Button from "../UI/Button";
 import MovieInfo from "../details/MovieInfo";
 import Spinner from "../UI/Spinner";
 
-import styles from './MovieDetail.module.css';
-
 const MovieDetail = (props) => {
 
   const movieID = props.match.params.id;
@@ -40,15 +38,15 @@ const MovieDetail = (props) => {
     getMovieDetail();
   }, [movieID]);
 
-  console.log(isLoading);
+  // console.log(isLoading);
 
   const movieData = (
     <>
-      <MovieInfo data={movieInfo} />
+      <MovieInfo data={movieInfo} isActive={isActive}/>
       <Link to="/" style={{ textDecoration: "none" }}>
         <Button name={"BACK"} className={'back'}/>
       </Link>
-      <Button name={'+'} className={'mobile'} onClick={() => setIsActive(!isActive)} isActive={isActive}/>
+      <Button name={isActive? '-' : '+'} className={'mobile'} onClick={() => setIsActive(!isActive)} />
     </>
   );
 

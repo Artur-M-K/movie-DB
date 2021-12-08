@@ -14,7 +14,7 @@
     font-weight: 100;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .plot {
         width: 98%;
         padding: 5px 5px;

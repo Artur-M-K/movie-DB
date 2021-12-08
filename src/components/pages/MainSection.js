@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { MovieContext } from "../../context/MovieContext";
 import Cart from "../details/Cart";
 import ReactPaginate from 'react-paginate';
@@ -14,7 +14,7 @@ const MainSection = () => {
   }, [movies]);
 
   const moviesData = JSON.parse(localStorage.getItem("searchData"));
-
+  console.log(moviesData)
   let check = moviesData !== null ? moviesData : movies;
   
   const moviesInfo = check.map((movie) => (
@@ -30,7 +30,7 @@ const MainSection = () => {
     setPageNumber(data.selected)
   }
 
-  const pageResultHandler = () => {
+  const pageResultHandler = useCallback(() => {
     localStorage.clear();
     fetch(`https://movie-database-imdb-alternative.p.rapidapi.com/?s=${inputText}&r=json&type=movie&page=${pageNumber+1}`, {
       "method": "GET",
@@ -43,15 +43,15 @@ const MainSection = () => {
           .then(data => {
             setMovies(data.Search)
             setTotalResult(data.totalResults);
-            console.log(data.Search)
+            // console.log(data.Search)
             setIsLoading(false)
           })
         .catch(err => {
           console.error(err);
         });
-      }
+      },[apiKey, inputText, pageNumber, setMovies, setTotalResult]);
       
-  console.log(totalResult)
+  // console.log(totalResult)
 
   useEffect(() => {
     setIsLoading(true);
@@ -60,9 +60,9 @@ const MainSection = () => {
     return function cleanup() {
        setIsLoading(false)
     }
-  },[pageNumber]);
+  },[pageNumber, pageResultHandler]);
 
-  console.log(pageNumber)
+  // console.log(pageNumber)
 
   const moviePageInfo = <>
     <ul className={styles.container}>{moviesInfo}</ul>

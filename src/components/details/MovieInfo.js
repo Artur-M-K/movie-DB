@@ -7,11 +7,12 @@ import GeneralInfo from "./GeneralInfo";
 import styles from "./MovieInfo.module.css";
 import AdditionalInfo from "./AdditionalInfo";
 
-const MovieInfo = ({ data }) => {
-  console.log(data);
+const MovieInfo = ({ data, isActive }) => {
+  // console.log(data);
+  // console.log(isActive)
   return (
     <div className={styles.container}>
-      <div className={styles.movie}>
+      <div className={isActive ? `${styles.movie} + ${styles.activeMovie}`: `${styles.movie}`}>
         <div className={styles.title}>
           <h1>{data.Title}</h1>
         </div>
@@ -20,7 +21,7 @@ const MovieInfo = ({ data }) => {
         <Plot data={data} />
         <AdditionalInfo data={data}/>
       </div>
-      <div className={styles.moviePoster}>
+      <div className={isActive ? `${styles.moviePoster} + ${styles.active}` : `${styles.moviePoster}`}>
         <img src={data.Poster} alt={data.Title} />
         <Ratings data={data.Ratings} />
       </div>

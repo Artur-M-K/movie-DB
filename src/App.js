@@ -8,23 +8,12 @@ import NoFound from "./components/details/NoFound";
 import NotFound from "./components/pages/NotFound";
 import "./App.css";
 
-let initialization = false;
 
 const App = () => {
-  // const [initialization, setInitialization] = useState(false);
-  const { movies } = useContext(MovieContext);
-  console.log(movies);
-  console.log(initialization);
-
-  useEffect(() => {
-    // if (movies === 0) {
-    //   setInitialization(false)
-    // } else {
-    //   setInitialization(true)
-    // }
-    initialization = true;
-  }, []);
- 
+  
+  const { movies, inputText, isMovieInput } = useContext(MovieContext);
+  // console.log(movies);
+  // console.log(isMovieInput);
 
   return (
     <>
@@ -32,7 +21,7 @@ const App = () => {
         <Switch>
         <Route exact path="/">
           <Header />
-          {initialization && 
+          {isMovieInput && 
           (movies !== undefined ? <MainSection /> : <NoFound />)}
         </Route>
         <Route path="/movie/:id" component={MovieDetail}></Route>

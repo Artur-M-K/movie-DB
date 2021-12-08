@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-const Button = ({onClick, name, className, isActive}) => {
-    console.log(isActive)
-    const buttonClass = className === 'back' ? styles.back: styles.mobile;
+const Button = ({onClick, name, className}) => {
     
+    const buttonClass = className === 'back' ? styles.back: styles.mobile;
     return (
         
             <button 

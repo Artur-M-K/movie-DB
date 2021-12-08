@@ -1,15 +1,17 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef} from 'react';
 import {MovieContext} from '../../context/MovieContext';
 import styles from './Input.module.css';
 
 const Input = () => {
 
     const {inputText, setInputText} = useContext(MovieContext);
-
+    const ref = useRef('')
+    // inputText && console.log(ref.current.value, inputText)
     return (
-        <input 
+        <input
+            ref={ref} 
             className={styles.input} 
-            onChange={(e) => setInputText(e.target.value)} 
+            onChange={() => setInputText(ref.current.value)} 
             type="text" 
             value={inputText}
         />

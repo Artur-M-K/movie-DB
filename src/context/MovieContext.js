@@ -7,6 +7,7 @@ const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [totalResult, setTotalResult] = useState(0);
+  const [isMovieInput, setIsMovieInput] = useState(false);
   const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
   return (
@@ -20,7 +21,9 @@ const MovieProvider = ({ children }) => {
         setTotalResult,
         pageNumber,
         setPageNumber,
-        apiKey
+        apiKey,
+        isMovieInput,
+        setIsMovieInput
       }}
     >
       {children}

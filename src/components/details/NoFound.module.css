@@ -12,3 +12,13 @@
     text-align: center;
     margin-bottom: 5px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+    }
+
+    .container p {
+        font-size: 1.1rem;
+    }
+}

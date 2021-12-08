@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 
 const Header = () => {
   
-  const {inputText, setPageNumber, setTotalResult, setMovies, apiKey} = useContext(MovieContext);
+  const {inputText, setPageNumber, setTotalResult, setMovies, apiKey, setIsMovieInput} = useContext(MovieContext);
   // const {setResultNumber} = useContext(MovieContext)
   // const {setMovies} = useContext(MovieContext);
 
@@ -25,6 +25,7 @@ const Header = () => {
           .then(data => {
             setMovies(data.Search)
             setTotalResult(data.totalResults);
+            setIsMovieInput(true);
           })
         .catch(err => {
           console.error(err);
