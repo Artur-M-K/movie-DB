@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import { MovieContext } from "./context/MovieContext";
@@ -11,7 +11,7 @@ import "./App.css";
 
 const App = () => {
   
-  const { movies, inputText, isMovieInput } = useContext(MovieContext);
+  const { movies, isMovieInput } = useContext(MovieContext);
 
   return (
     <>

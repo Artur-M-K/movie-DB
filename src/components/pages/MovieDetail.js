@@ -36,7 +36,7 @@ const MovieDetail = (props) => {
         });
     };
     getMovieDetail();
-  }, [movieID]);
+  }, [movieID, apiKey]);
 
   const movieData = (
     <>
