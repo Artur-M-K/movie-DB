@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 
 const Cart = ({title, poster, id}) => {
-    // console.log(title,poster)
-    // console.log(title.length)
+    
     const titleShort = title.length>26 ? title.substring(0, 23)+'...': title;
 
     return (

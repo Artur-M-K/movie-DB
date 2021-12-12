@@ -12,8 +12,6 @@ import "./App.css";
 const App = () => {
   
   const { movies, inputText, isMovieInput } = useContext(MovieContext);
-  // console.log(movies);
-  // console.log(isMovieInput);
 
   return (
     <>

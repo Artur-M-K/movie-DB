@@ -38,8 +38,6 @@ const MovieDetail = (props) => {
     getMovieDetail();
   }, [movieID]);
 
-  // console.log(isLoading);
-
   const movieData = (
     <>
       <MovieInfo data={movieInfo} isActive={isActive}/>

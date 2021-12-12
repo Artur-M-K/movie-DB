@@ -6,7 +6,7 @@ const Input = () => {
 
     const {inputText, setInputText} = useContext(MovieContext);
     const ref = useRef('')
-    // inputText && console.log(ref.current.value, inputText)
+
     return (
         <input
             ref={ref} 

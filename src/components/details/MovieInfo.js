@@ -8,8 +8,7 @@ import styles from "./MovieInfo.module.css";
 import AdditionalInfo from "./AdditionalInfo";
 
 const MovieInfo = ({ data, isActive }) => {
-  // console.log(data);
-  // console.log(isActive)
+  
   return (
     <div className={styles.container}>
       <div className={isActive ? `${styles.movie} + ${styles.activeMovie}`: `${styles.movie}`}>

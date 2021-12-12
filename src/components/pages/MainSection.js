@@ -14,7 +14,7 @@ const MainSection = () => {
   }, [movies]);
 
   const moviesData = JSON.parse(localStorage.getItem("searchData"));
-  console.log(moviesData)
+  
   let check = moviesData !== null ? moviesData : movies;
   
   const moviesInfo = check.map((movie) => (
@@ -43,7 +43,7 @@ const MainSection = () => {
           .then(data => {
             setMovies(data.Search)
             setTotalResult(data.totalResults);
-            // console.log(data.Search)
+            
             setIsLoading(false)
           })
         .catch(err => {
@@ -51,7 +51,7 @@ const MainSection = () => {
         });
       },[apiKey, inputText, pageNumber, setMovies, setTotalResult]);
       
-  // console.log(totalResult)
+  
 
   useEffect(() => {
     setIsLoading(true);
@@ -61,8 +61,6 @@ const MainSection = () => {
        setIsLoading(false)
     }
   },[pageNumber, pageResultHandler]);
-
-  // console.log(pageNumber)
 
   const moviePageInfo = <>
     <ul className={styles.container}>{moviesInfo}</ul>
