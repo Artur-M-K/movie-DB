@@ -10,7 +10,7 @@ const Header = () => {
   const {inputText, setPageNumber, setTotalResult, setMovies, apiKey, setIsMovieInput} = useContext(MovieContext);
   // const {setResultNumber} = useContext(MovieContext)
   // const {setMovies} = useContext(MovieContext);
-
+  console.log(apiKey)
   const handleSubmit = () => {
     setPageNumber(0)
     if (inputText !== '') {
