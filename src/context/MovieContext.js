@@ -11,7 +11,7 @@ const MovieProvider = ({ children }) => {
   // const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
   
   
-  fetch(`../../.netlify/functions/api-key`)
+  fetch(`.netlify/functions/api-key`)
     .then((response) => response.json())
     .then((json) => {
       apiKey = json.api;
